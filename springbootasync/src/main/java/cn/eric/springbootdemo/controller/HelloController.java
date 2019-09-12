@@ -29,26 +29,26 @@ public class HelloController {
     private AsyncTaskService asyncTaskService;
 
     @RequestMapping("/world")
-    public String index(){
+    public String index() {
         for (int i = 0; i < 15000; i++) {
             logger.trace(i + "日志输出 trace");
             logger.debug(i + "日志输出 debug");
             logger.info(i + "日志输出 info");
             logger.warn(i + "日志输出 warn");
-            logger.error(i +"日志输出 error");
+            logger.error(i + "日志输出 error");
         }
 
         return "Hello World";
     }
 
     @GetMapping("/async/noParams")
-    public String noParamAsync(){
+    public String noParamAsync() {
         asyncTaskService.executeAsyncTask1();
         return "success";
     }
 
     @GetMapping("/async/hasParams")
-    public String hasParamsAsync(String name){
+    public String hasParamsAsync(String name) {
 
         asyncTaskService.executeAsyncTask2(name);
 
@@ -56,7 +56,7 @@ public class HelloController {
     }
 
     @GetMapping("/async/hasParamsAndReturn")
-    public String hasParamsAndReturnAsync(String name){
+    public String hasParamsAndReturnAsync(String name) {
 
         Future<String> stringFuture = asyncTaskService.executeAsyncTask3(name);
         String result = null;

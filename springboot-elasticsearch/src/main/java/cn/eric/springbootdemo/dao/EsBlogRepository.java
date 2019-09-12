@@ -25,8 +25,10 @@ public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, String
     List<EsBlog> findByTitleCustom(String keyword);
 
     //下面是我们根据 spring data jpa 的命名规范额外创建的两个查询方法
+
     /**
      * 模糊查询(去重)，根据标题，简介，描述和标签查询（含有即可）Containing
+     *
      * @param title
      * @param Summary
      * @param content
@@ -38,6 +40,7 @@ public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, String
 
     /**
      * 根据 Blog 的id 查询 EsBlog
+     *
      * @param blogId
      * @return
      */

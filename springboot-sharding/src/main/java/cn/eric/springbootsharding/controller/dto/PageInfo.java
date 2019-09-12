@@ -17,7 +17,8 @@ public class PageInfo {
     @ApiModelProperty(value = "每页条数", required = true)
     private int size;
 
-    public PageInfo() { }
+    public PageInfo() {
+    }
 
 
     public int getPage() {

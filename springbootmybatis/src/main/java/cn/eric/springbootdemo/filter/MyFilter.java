@@ -17,7 +17,7 @@ import java.io.IOException;
  * @company lsj
  * @date 2019/5/10 16:43
  **/
-@WebFilter(filterName = "myFilter",urlPatterns = "/*")
+@WebFilter(filterName = "myFilter", urlPatterns = "/*")
 public class MyFilter implements Filter {
 
     private static Logger logger = LoggerFactory.getLogger(MyFilter.class);
@@ -34,7 +34,7 @@ public class MyFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
         String requestURI = httpRequest.getRequestURI();
         logger.info("请求的地址: {}", requestURI);
-        filterChain.doFilter(httpRequest,httpResponse);
+        filterChain.doFilter(httpRequest, httpResponse);
     }
 
     @Override

@@ -40,9 +40,10 @@ public class PhoneController {
 
     /**
      * 全文搜索
+     *
      * @param keyword 关键字
-     * @param page 当前页，从0开始
-     * @param size 每页大小
+     * @param page    当前页，从0开始
+     * @param size    每页大小
      * @return {@link R} 接收到的数据格式为json
      */
     @GetMapping("/full")
@@ -60,8 +61,7 @@ public class PhoneController {
         Pageable pageable = PageRequest.of(page, size);
 
         // 构造查询 NativeSearchQueryBuilder
-        NativeSearchQueryBuilder searchQueryBuilder = new NativeSearchQueryBuilder()
-                .withPageable(pageable);
+        NativeSearchQueryBuilder searchQueryBuilder = new NativeSearchQueryBuilder().withPageable(pageable);
         if (!StringUtils.isEmpty(keyword)) {
             // keyword must not null
             searchQueryBuilder.withQuery(QueryBuilders.queryStringQuery(keyword));
@@ -84,20 +84,19 @@ public class PhoneController {
 
     /**
      * 高级搜索，根据字段进行搜索
-     * @param name 名称
-     * @param color 颜色
+     *
+     * @param name         名称
+     * @param color        颜色
      * @param sellingPoint 卖点
-     * @param price 价格
-     * @param start 开始时间(格式：yyyy-MM-dd HH:mm:ss)
-     * @param end 结束时间(格式：yyyy-MM-dd HH:mm:ss)
-     * @param page 当前页，从0开始
-     * @param size 每页大小
+     * @param price        价格
+     * @param start        开始时间(格式：yyyy-MM-dd HH:mm:ss)
+     * @param end          结束时间(格式：yyyy-MM-dd HH:mm:ss)
+     * @param page         当前页，从0开始
+     * @param size         每页大小
      * @return {@link R}
      */
     @GetMapping("/_search")
-    public Mono<R> search(String name,@RequestParam(required = false) String color,@RequestParam(required = false) String sellingPoint,
-                          @RequestParam(required = false) String price,@RequestParam(required = false) String start,
-                          @RequestParam(required = false) String end,@RequestParam(required = false) Integer page,@RequestParam(required = false) Integer size) {
+    public Mono<R> search(String name, @RequestParam(required = false) String color, @RequestParam(required = false) String sellingPoint, @RequestParam(required = false) String price, @RequestParam(required = false) String start, @RequestParam(required = false) String end, @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
 
         // 校验参数
         if (StringUtils.isEmpty(page) || page < 0) {
@@ -139,11 +138,7 @@ public class PhoneController {
         }
 
         // BoolQueryBuilder (Spring Query)
-        SearchQuery searchQuery = new NativeSearchQueryBuilder()
-                .withPageable(pageable)
-                .withQuery(boolQueryBuilder)
-                .build()
-                ;
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withPageable(pageable).withQuery(boolQueryBuilder).build();
 
         // page search
         Page<PhoneModel> phoneModelPage = elasticsearchTemplate.queryForPage(searchQuery, PhoneModel.class);

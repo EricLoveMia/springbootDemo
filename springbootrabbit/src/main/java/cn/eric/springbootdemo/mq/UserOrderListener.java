@@ -36,22 +36,36 @@ public class UserOrderListener implements ChannelAwareMessageListener {
         long deliveryTag = message.getMessageProperties().getDeliveryTag();
 
         try {
+            // 如果要测试异常后重新入队 请打开下面的代码
+//            if(count.get() > 40){
+//                int i = 2/0;
+//            }
+
             total.incrementAndGet();
             byte[] body = message.getBody();
-            String mobile = new String(body,"UTF-8");
-            log.info("监听到抢单手机号：{}",mobile);
-            if(num.decrementAndGet() >= 0){
+            String mobile = new String(body, "UTF-8");
+            log.info("监听到抢单手机号：{}", mobile);
+            if (num.decrementAndGet() >= 0) {
                 //System.out.printf("抢单成功");
                 count.addAndGet(1);
-                System.out.println("共计" + count  + "单");
-            }else{
-                //System.out.printf("抢单失败");
+                System.out.println("共计" + count + "单");
+                // BasicAck方法的第二个参数 multiple 取值为 false 时，表示通知 RabbitMQ 当前消息被确认；
+                // 如果为 true，则额外将比第一个参数指定的 delivery tag 小的消息一并确认
+                channel.basicAck(deliveryTag, false);
+            } else {
+                System.out.printf("抢单失败");
+                //channel.basicNack(deliveryTag,false, true);//第三个参数为是否重返队列
+                channel.basicNack(deliveryTag, false, false);
             }
             System.out.println("共计来到" + total);
-            channel.basicAck(deliveryTag,true);
+
         } catch (Exception e) {
-            log.info("用户抢单发生异常：",e.fillInStackTrace());
-            channel.basicAck(deliveryTag,false);
+            log.info("用户抢单发生异常：", e.fillInStackTrace());
+            // channel.basicAck(deliveryTag,false);
+            // channel.basicAck(deliveryTag,true);
+            // 第一个参数指定 delivery tag，第二个参数说明如何处理这个失败消息。requeue 值为 true 表示该消息重新放回队列头，值为 false 表示放弃这条消息
+            channel.basicReject(deliveryTag, true);
+            // 也可以手动确认已经消费 然后手动重新放入队列中，或者将异常的数据写入数据库 然后定时扫描 再入队列 根据使用场景
         }
     }
 

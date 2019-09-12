@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /*** druid配置WebStatFilter完成网络url统计 **/
+
 /*** mybatis **/
 @SpringBootApplication
 @MapperScan("cn.eric.springbootdemo.mapper")

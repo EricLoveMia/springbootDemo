@@ -16,8 +16,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApiResult {
-    /** 代码 */
+    /**
+     * 代码
+     */
     private String code;
-    /** 结果 */
+    /**
+     * 结果
+     */
     private String msg;
 }

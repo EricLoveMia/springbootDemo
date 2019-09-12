@@ -31,7 +31,7 @@ public class CommonMqService {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void sendRobbingMsgV2(String mobile){
+    public void sendRobbingMsgV2(String mobile) {
 
         rabbitTemplate.setExchange(env.getProperty("user.order.exchange.name"));
         rabbitTemplate.setRoutingKey(env.getProperty("user.order.routing.key.name"));

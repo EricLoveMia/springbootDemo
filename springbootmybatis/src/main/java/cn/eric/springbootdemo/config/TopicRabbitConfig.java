@@ -21,22 +21,22 @@ public class TopicRabbitConfig {
     final static String QUEUE_NAME = "test2-queue";
 
     @Bean
-    public Queue test2Queue(){
+    public Queue test2Queue() {
         return new Queue(QUEUE_NAME);
     }
 
     @Bean
-    TopicExchange exchange(){
+    TopicExchange exchange() {
         return new TopicExchange("my_exchange");
     }
 
     @Bean
-    Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange){
+    Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
         return BindingBuilder.bind(queueMessage).to(exchange).with("my_routingkey");
     }
 
     @Bean
-    Binding bindingExchangeMessages(Queue queueMessage, TopicExchange exchange){
+    Binding bindingExchangeMessages(Queue queueMessage, TopicExchange exchange) {
         return BindingBuilder.bind(queueMessage).to(exchange).with("test2.#");
     }
 

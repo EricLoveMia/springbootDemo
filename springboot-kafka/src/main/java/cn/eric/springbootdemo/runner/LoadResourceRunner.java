@@ -22,10 +22,10 @@ public class LoadResourceRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("===MyApplicationRunner==="+ Arrays.asList(args.getSourceArgs()));
-        System.out.println("===getOptionNames========"+args.getOptionNames());
-        System.out.println("===getOptionValues======="+args.getOptionValues("foo"));
-        System.out.println("===getOptionValues========"+args.getOptionValues("developer.name"));
+        System.out.println("===MyApplicationRunner===" + Arrays.asList(args.getSourceArgs()));
+        System.out.println("===getOptionNames========" + args.getOptionNames());
+        System.out.println("===getOptionValues=======" + args.getOptionValues("foo"));
+        System.out.println("===getOptionValues========" + args.getOptionValues("developer.name"));
         System.out.println("create thread loop" + args);
     }
 }

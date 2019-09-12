@@ -21,22 +21,22 @@ public class Producer2 {
     @Autowired
     private AmqpTemplate rabbitTemplet;
 
-    public void send(){
+    public void send() {
         String msg = "msg" + new Date();
         System.out.println("Producer2: " + msg);
-        rabbitTemplet.convertAndSend("test-queue",msg);
+        rabbitTemplet.convertAndSend("test-queue", msg);
     }
 
-    public void sendUser(){
-        User user = new User(1L,"eric","lovemia","qianxu",false);
-        rabbitTemplet.convertAndSend("test-queue","msg:" + user);
+    public void sendUser() {
+        User user = new User(1L, "eric", "lovemia", "qianxu", false);
+        rabbitTemplet.convertAndSend("test-queue", "msg:" + user);
     }
 
-    public void sendTimes(int time){
+    public void sendTimes(int time) {
         for (int i = 0; i < time; i++) {
             String msg = "msg:" + i;
             System.out.println("Producer: " + msg);
-            rabbitTemplet.convertAndSend("test-queue",msg);
+            rabbitTemplet.convertAndSend("test-queue", msg);
         }
     }
 }

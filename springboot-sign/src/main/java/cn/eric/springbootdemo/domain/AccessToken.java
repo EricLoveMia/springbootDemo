@@ -18,6 +18,8 @@ import java.util.Date;
 public class AccessToken {
 
     private String token;
-    /** 失效时间 */
+    /**
+     * 失效时间
+     */
     private Date expireTime;
 }

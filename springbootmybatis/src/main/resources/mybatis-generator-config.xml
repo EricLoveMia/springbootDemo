@@ -6,7 +6,8 @@
 <generatorConfiguration>
     <properties resource="application.properties"/>
 
-    <classPathEntry location="C:\\Users\\Eric\\.m2\\repository\\mysql\\mysql-connector-java\\5.1.46\\mysql-connector-java-5.1.46.jar"/>
+    <classPathEntry
+            location="C:\\Users\\Eric\\.m2\\repository\\mysql\\mysql-connector-java\\5.1.46\\mysql-connector-java-5.1.46.jar"/>
     <context id="myContext" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="false"/>
@@ -25,20 +26,21 @@
 
         <!-- 生成实体类地址 -->
         <javaModelGenerator targetPackage="cn.eric.springbootdemo.domain"
-                            targetProject="src/main/java" >
+                            targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- 生成XxxMapper.xml文件 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" >
-            <property name="enableSubPackages" value="false" />
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- 生成接口 XxxMapper.java -->
-        <javaClientGenerator targetPackage="cn.eric.springbootdemo.mapper" targetProject="src/main/java" type="XMLMAPPER" >
-            <property name="enableSubPackages" value="false" />
+        <javaClientGenerator targetPackage="cn.eric.springbootdemo.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
 

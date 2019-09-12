@@ -23,6 +23,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
 
     /**
      * 定义线程池
+     *
      * @return
      */
     @Override
@@ -41,6 +42,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
      * 异步方法抛出异常时处理器
      * return null: 使用默认的处理器，打印异常信息和堆栈
      * 也可以自定义自己的异常处理器
+     *
      * @return
      */
     @Override

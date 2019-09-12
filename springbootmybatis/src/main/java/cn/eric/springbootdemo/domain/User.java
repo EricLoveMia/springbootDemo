@@ -33,6 +33,7 @@ public class User implements Serializable {
         this.locked = locked;
     }
 
-    public User(){}
+    public User() {
+    }
 
 }

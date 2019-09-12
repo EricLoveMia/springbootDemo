@@ -53,23 +53,18 @@ public class UserController {
     private OrderService orderService;
 
     @ApiOperation(value = "用户登录", notes = "用户登录接口")
-    @ApiResponses({
-            @ApiResponse(code = 0, message = "success"),
-            @ApiResponse(code = 10001, message = "用户名错误", response = IllegalArgumentException.class),
-            @ApiResponse(code = 10002, message = "密码错误")
-    })
+    @ApiResponses({@ApiResponse(code = 0, message = "success"), @ApiResponse(code = 10001, message = "用户名错误", response = IllegalArgumentException.class), @ApiResponse(code = 10002, message = "密码错误")})
     @GetMapping(value = "/login")
-    public String login(@ApiParam(name = "username", value = "用户名", required = true) @RequestParam String username,
-                        @ApiParam(name = "password", value = "密码", required = true) @RequestParam String password) throws JsonProcessingException {
+    public String login(@ApiParam(name = "username", value = "用户名", required = true) @RequestParam String username, @ApiParam(name = "password", value = "密码", required = true) @RequestParam String password) throws JsonProcessingException {
 
-        User userLog=new User();
+        User userLog = new User();
         userLog.setName(username);
         userLog.setPassword(password);
         rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
         rabbitTemplate.setExchange(env.getProperty("log.user.exchange.name"));
         rabbitTemplate.setRoutingKey(env.getProperty("log.user.routing.key.name"));
 
-        Message message= MessageBuilder.withBody(objectMapper.writeValueAsBytes(userLog)).setDeliveryMode(MessageDeliveryMode.PERSISTENT).build();
+        Message message = MessageBuilder.withBody(objectMapper.writeValueAsBytes(userLog)).setDeliveryMode(MessageDeliveryMode.PERSISTENT).build();
         message.getMessageProperties().setHeader(AbstractJavaTypeMapper.DEFAULT_CONTENT_CLASSID_FIELD_NAME, MessageProperties.CONTENT_TYPE_JSON);
         rabbitTemplate.convertAndSend(message);
 
@@ -78,42 +73,37 @@ public class UserController {
 
 
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息")
-    @ApiImplicitParams({
-            @ApiImplicitParam(dataTypeClass = String.class, paramType = "header", name = "phone", required = true, value = "手机号"),
-            @ApiImplicitParam(dataTypeClass = String.class, paramType = "query", name = "nickname", required = true, value = "nickname", defaultValue = "双击666"),
-            @ApiImplicitParam(dataTypeClass = String.class, paramType = "path", name = "platform", required = true, value = "平台", defaultValue = "PC"),
-            @ApiImplicitParam(dataTypeClass = String.class, paramType = "body", name = "password", required = true, value = "密码")
-    })
+    @ApiImplicitParams({@ApiImplicitParam(dataTypeClass = String.class, paramType = "header", name = "phone", required = true, value = "手机号"), @ApiImplicitParam(dataTypeClass = String.class, paramType = "query", name = "nickname", required = true, value = "nickname", defaultValue = "双击666"), @ApiImplicitParam(dataTypeClass = String.class, paramType = "path", name = "platform", required = true, value = "平台", defaultValue = "PC"), @ApiImplicitParam(dataTypeClass = String.class, paramType = "body", name = "password", required = true, value = "密码")})
     @PutMapping(value = "/{platform}/regist")
-    public String regist(@RequestHeader String phone, @RequestParam String nickname, @PathVariable String platform, @RequestBody String password){
-        return "{'username':'" + phone + "', 'nickname':'" + nickname + "', 'platform': '" + platform + "', 'password':'"+password+"'}";
+    public String regist(@RequestHeader String phone, @RequestParam String nickname, @PathVariable String platform, @RequestBody String password) {
+        return "{'username':'" + phone + "', 'nickname':'" + nickname + "', 'platform': '" + platform + "', 'password':'" + password + "'}";
     }
 
 
     @ApiOperation(value = "用户列表", notes = "查询用户列表")
     @GetMapping(value = "/list")
-    public String getUserList(PageInfo page){
-        return "[{'id': "+page.getPage()+", 'username': 'zhangsan"+page.getSize()+"'}]";
+    public String getUserList(PageInfo page) {
+        return "[{'id': " + page.getPage() + ", 'username': 'zhangsan" + page.getSize() + "'}]";
     }
 
     @ApiOperation(value = "删除用户", notes = "删除用户")
     @DeleteMapping("/{id}")
-    public String removeUser(@PathVariable Long id){
+    public String removeUser(@PathVariable Long id) {
         return "success";
     }
 
     @ApiIgnore
     @RequestMapping("/ignoreApi")
-    public String ignoreApi(){
+    public String ignoreApi() {
         return "docs";
     }
 
     @ApiOperation(value = "测试抢单", notes = "测试抢单")
     @GetMapping("/orderMulitiThread")
-    public String orderMulitiThread(Integer num){
+    public String orderMulitiThread(Integer num) {
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        for(int i=0;i<num;i++){
+        for (int i = 0; i < num; i++) {
             new Thread(new RunThread(countDownLatch)).start();
         }
         countDownLatch.countDown();
@@ -121,13 +111,13 @@ public class UserController {
     }
 
     @PostMapping("/createOrder")
-    public String createOrderk(@RequestBody Order order){
+    public String createOrderk(@RequestBody Order order) {
         order.setStatus(1);
         orderService.createOrder(order);
         return "success";
     }
 
-    private class RunThread implements Runnable{
+    private class RunThread implements Runnable {
 
         private final CountDownLatch latch;
 

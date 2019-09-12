@@ -25,10 +25,14 @@ public class Players implements Serializable {
     private String id;
 
     private String name;
-    /** 不做全文检索字段 年龄*/
+    /**
+     * 不做全文检索字段 年龄
+     */
     @Field(index = false)
     private Integer age;
-    /** 不做全文检索字段 收入*/
+    /**
+     * 不做全文检索字段 收入
+     */
     @Field(index = false)
     private Integer salary;
     @Field(fielddata = true)
@@ -36,7 +40,8 @@ public class Players implements Serializable {
     @Field(fielddata = true)
     private String position;
 
-    public Players(){}
+    public Players() {
+    }
 
     public Players(String name, Integer age, Integer salary, String team, String position) {
         this.name = name;

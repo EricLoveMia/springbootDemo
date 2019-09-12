@@ -17,6 +17,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NotRepeatSubmit {
 
-    /** 过期时间 单位毫秒 **/
+    /**
+     * 过期时间 单位毫秒
+     **/
     long value() default 5000;
 }

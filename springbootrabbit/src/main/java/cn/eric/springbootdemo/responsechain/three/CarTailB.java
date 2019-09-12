@@ -14,7 +14,7 @@ public class CarTailB extends CarControllerB {
     public void controlCar() {
 
         System.out.println("组装汽车的尾部");
-        if(getSuccessor() != null){
+        if (getSuccessor() != null) {
             getSuccessor().controlCar();
         }
     }

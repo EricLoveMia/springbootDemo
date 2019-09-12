@@ -8,7 +8,7 @@ package cn.eric.springbootdemo.responsechain.one;
  * @company lsj
  * @date 2019/5/30 14:39
  **/
-public class CarTall extends CarController{
+public class CarTall extends CarController {
     @Override
     public void controlCar() {
 

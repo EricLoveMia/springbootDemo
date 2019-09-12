@@ -8,6 +8,7 @@ package cn.eric.springbootsharding.controller;
  * @company lsj
  * @date 2019/5/22 17:47
  **/
+
 import cn.eric.springbootsharding.domain.Order;
 import cn.eric.springbootsharding.mapper.OrderMapper;
 import cn.eric.springbootsharding.repositorty.OrderRepository;
@@ -59,7 +60,7 @@ public class OrderController {
         return "success";
     }
 
-    @RequestMapping(value = "/insert",method = RequestMethod.GET)
+    @RequestMapping(value = "/insert", method = RequestMethod.GET)
     public Object insert() {
         for (int i = 40; i < 60; i++) {
             Order order = new Order();

@@ -18,7 +18,8 @@ public class ExchangeDemo {
             throw new RuntimeException(e);
         }
     }
-    public static double getRate(String source,String target){
+
+    public static double getRate(String source, String target) {
         delay();
         return 10;
     }

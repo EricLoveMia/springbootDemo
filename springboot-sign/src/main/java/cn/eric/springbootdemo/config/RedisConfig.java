@@ -33,17 +33,18 @@ public class RedisConfig {
 
     @Bean
     @ConfigurationProperties(prefix = "spring.redis")
-    public JedisConnectionFactory jedisConnectionFactory(){
+    public JedisConnectionFactory jedisConnectionFactory() {
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
         return new JedisConnectionFactory();
     }
 
     /**
      * 支持存储对象
+     *
      * @return
      */
     @Bean
-    public RedisTemplate<String, String> redisTemplate(){
+    public RedisTemplate<String, String> redisTemplate() {
         RedisTemplate<String, String> redisTemplate = new StringRedisTemplate();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);

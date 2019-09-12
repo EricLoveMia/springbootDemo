@@ -14,7 +14,7 @@ public class CarDrumbeatingB extends CarControllerB {
     public void controlCar() {
 
         System.out.println("进行宣传工作");
-        if(getSuccessor() != null){
+        if (getSuccessor() != null) {
             getSuccessor().controlCar();
         }
     }

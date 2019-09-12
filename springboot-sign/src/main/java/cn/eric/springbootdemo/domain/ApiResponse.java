@@ -27,24 +27,24 @@ public class ApiResponse<T> {
 
     private String sign;
 
-    public static <T> ApiResponse success(T data){
-       return response(ApiCodeEnum.SUCCESS.getCode(),ApiCodeEnum.SUCCESS.getMsg(),data);
+    public static <T> ApiResponse success(T data) {
+        return response(ApiCodeEnum.SUCCESS.getCode(), ApiCodeEnum.SUCCESS.getMsg(), data);
     }
 
-    public static <T> ApiResponse response(String code,String msg,T data){
-        ApiResult result = new ApiResult(code,msg);
+    public static <T> ApiResponse response(String code, String msg, T data) {
+        ApiResult result = new ApiResult(code, msg);
         ApiResponse response = new ApiResponse();
         response.setResult(result);
         response.setData(data);
         String sign = signData(data);
         response.setSign(sign);
-        return  response;
+        return response;
     }
 
     private static <T> String signData(T data) {
         // TODO 查询key
         String key = "1234";
-        Map<String,String> responseMap = null;
+        Map<String, String> responseMap = null;
 
         try {
             responseMap = getFields(data);
@@ -60,18 +60,17 @@ public class ApiResponse<T> {
     }
 
     /**
-     *
+     * @return java.util.Map<java.lang.String   ,   java.lang.String>
+     * @throws
      * @author Eric
      * @date 11:45 2019/5/22
      * @params data 反射的对象 获取对象的字段名和值
-     * @throws
-     * @return java.util.Map<java.lang.String,java.lang.String>
      **/
-    public static Map<String,String> getFields(Object data) throws IllegalAccessException {
-        if(data == null){
+    public static Map<String, String> getFields(Object data) throws IllegalAccessException {
+        if (data == null) {
             return null;
         }
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         Field[] declaredFields = data.getClass().getDeclaredFields();
         for (int i = 0; i < declaredFields.length; i++) {
             Field declaredField = declaredFields[i];
@@ -79,8 +78,8 @@ public class ApiResponse<T> {
 
             String name = declaredField.getName();
             Object value = declaredField.get(data);
-            if(value != null){
-                map.put(name,value.toString());
+            if (value != null) {
+                map.put(name, value.toString());
             }
         }
         return map;

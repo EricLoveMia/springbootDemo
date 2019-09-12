@@ -27,7 +27,7 @@ public class User implements Serializable {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable=false,unique=true)
+    @Column(nullable = false, unique = true)
     private String name;
 
     private Integer age;
@@ -35,7 +35,7 @@ public class User implements Serializable {
     @Column(name = "create_time")
     private Date createTime;
 
-    public User(){
+    public User() {
 
     }
 

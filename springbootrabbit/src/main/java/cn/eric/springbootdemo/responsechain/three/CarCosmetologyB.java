@@ -14,7 +14,7 @@ public class CarCosmetologyB extends CarControllerB {
     public void controlCar() {
 
         System.out.println("美容工作");
-        if(getSuccessor() != null){
+        if (getSuccessor() != null) {
             getSuccessor().controlCar();
         }
     }

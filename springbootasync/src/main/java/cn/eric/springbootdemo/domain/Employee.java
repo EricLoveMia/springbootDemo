@@ -19,7 +19,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="tbl_employee")
+@Table(name = "tbl_employee")
 public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;

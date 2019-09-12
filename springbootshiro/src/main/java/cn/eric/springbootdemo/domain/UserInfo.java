@@ -35,12 +35,10 @@ public class UserInfo implements Serializable {
     private byte state;
 
     @ManyToMany(fetch = FetchType.EAGER) // 立即从数据库中进行加载数据
-    @JoinTable(name = "SysUserRole",
-        joinColumns = { @JoinColumn(name = "uid")},
-        inverseJoinColumns = { @JoinColumn(name = "roleId")})
+    @JoinTable(name = "SysUserRole", joinColumns = {@JoinColumn(name = "uid")}, inverseJoinColumns = {@JoinColumn(name = "roleId")})
     private List<SysRole> roleList;
 
-    public String getCredentialsSalt(){
+    public String getCredentialsSalt() {
         return this.username + this.salt;
     }
 }

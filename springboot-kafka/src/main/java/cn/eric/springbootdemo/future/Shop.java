@@ -19,11 +19,11 @@ public class Shop {
 
     private String name;
 
-    public Shop(String name){
+    public Shop(String name) {
         this.name = name;
     }
 
-    public static void delay(){
+    public static void delay() {
         try {
             Thread.sleep(1000L);
         } catch (InterruptedException e) {
@@ -31,12 +31,12 @@ public class Shop {
         }
     }
 
-    public double getPrice(String product){
+    public double getPrice(String product) {
         delay();
-        return random.nextDouble()* 100;
+        return random.nextDouble() * 100;
     }
 
-    public Future<Double> getPriceAsync(String product){
+    public Future<Double> getPriceAsync(String product) {
         return CompletableFuture.supplyAsync(() -> (getPrice(product)));
     }
 

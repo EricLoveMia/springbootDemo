@@ -36,6 +36,7 @@ public class MyShiroRealm extends AuthorizingRealm {
      * 当执行某个方法时，方法上会有权限注解，例如@RequiresPermissions("userInfo:add")，
      * 此时就会去找AuthorizationInfo中的stringPermissions是否包含userInfo:add，如果包含就继续处理，
      * 如果不包含则跳转到shiro配置的为授权的地址
+     *
      * @param principals
      * @return
      */
@@ -44,9 +45,9 @@ public class MyShiroRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
 
-        for(SysRole role : userInfo.getRoleList()){
+        for (SysRole role : userInfo.getRoleList()) {
             authorizationInfo.addRole(role.getRole());
-            for(SysPermission permision:role.getPermissions()){
+            for (SysPermission permision : role.getPermissions()) {
                 authorizationInfo.addStringPermission(permision.getPermission());
             }
         }
@@ -58,6 +59,7 @@ public class MyShiroRealm extends AuthorizingRealm {
      * 认证
      * 主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确。
      * 当用户登录时会执行
+     *
      * @throws AuthenticationException
      */
     @Override
@@ -66,14 +68,14 @@ public class MyShiroRealm extends AuthorizingRealm {
 
         //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
         UserInfo userInfo = userInfoService.findByUsername(userName);
-        if(userInfo == null){
+        if (userInfo == null) {
             return null;
         }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo( userInfo, //用户名
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userInfo, //用户名
                 userInfo.getPassword(), //密码
                 ByteSource.Util.bytes(userInfo.getCredentialsSalt()),//salt=username+salt
                 getName() //realm name
-                );
+        );
         return authenticationInfo;
 
     }

@@ -14,7 +14,7 @@ public class CarBodyB extends CarControllerB {
     public void controlCar() {
 
         System.out.println("组装汽车的身体");
-        if(getSuccessor() != null){
+        if (getSuccessor() != null) {
             getSuccessor().controlCar();
         }
     }

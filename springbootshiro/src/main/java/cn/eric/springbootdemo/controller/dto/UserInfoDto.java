@@ -24,7 +24,7 @@ public class UserInfoDto {
     private Long id;
 
     @NotBlank
-    @Length(min=3,max=10)
+    @Length(min = 3, max = 10)
     private String username;
 
     @NotBlank
@@ -32,7 +32,7 @@ public class UserInfoDto {
     private String email;
 
     @NotBlank
-    @Pattern(regexp="^((13[0-9])|(15[^4,\\D])|(18[0,3-9]))\\d{8}$", message="手机号格式不正确")
+    @Pattern(regexp = "^((13[0-9])|(15[^4,\\D])|(18[0,3-9]))\\d{8}$", message = "手机号格式不正确")
     private String phone;
 
     @Min(value = 18)
@@ -40,6 +40,6 @@ public class UserInfoDto {
     private int age;
 
     @NotBlank
-    @Length(min=6,max=12,message="昵称长度为6-12")
+    @Length(min = 6, max = 12, message = "昵称长度为6-12")
     private String nickname;
 }

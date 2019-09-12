@@ -19,16 +19,20 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="tbl_department")
+@Table(name = "tbl_department")
 public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** 主键ID */
+    /**
+     * 主键ID
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    /** 部门名称 */
+    /**
+     * 部门名称
+     */
     private String name;
 
 }

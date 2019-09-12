@@ -40,17 +40,10 @@ public class DataSourceConfiguration {
 
         //设置分表映射，将t_order_0和t_order_1两个实际的表映射到t_order逻辑表
         //0和1两个表是真实的表，t_order是个虚拟不存在的表，只是供使用。如查询所有数据就是select * from t_order就能查完0和1表的
-        TableRule orderTableRule = TableRule.builder("t_order")
-                .actualTables(Arrays.asList("t_order_0", "t_order_1"))
-                .dataSourceRule(dataSourceRule)
-                .build();
+        TableRule orderTableRule = TableRule.builder("t_order").actualTables(Arrays.asList("t_order_0", "t_order_1")).dataSourceRule(dataSourceRule).build();
 
         //具体分库分表策略，按什么规则来分
-        ShardingRule shardingRule = ShardingRule.builder()
-                .dataSourceRule(dataSourceRule)
-                .tableRules(Arrays.asList(orderTableRule))
-                .databaseShardingStrategy(new DatabaseShardingStrategy("user_id", new ModuleDatabaseShardingAlgorithm()))
-                .tableShardingStrategy(new TableShardingStrategy("order_id", new ModuleTableShardingAlgorithm())).build();
+        ShardingRule shardingRule = ShardingRule.builder().dataSourceRule(dataSourceRule).tableRules(Arrays.asList(orderTableRule)).databaseShardingStrategy(new DatabaseShardingStrategy("user_id", new ModuleDatabaseShardingAlgorithm())).tableShardingStrategy(new TableShardingStrategy("order_id", new ModuleTableShardingAlgorithm())).build();
 
         DataSource dataSource = ShardingDataSourceFactory.createDataSource(shardingRule);
 

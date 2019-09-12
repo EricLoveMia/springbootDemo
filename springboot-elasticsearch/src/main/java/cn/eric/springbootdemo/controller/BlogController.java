@@ -40,9 +40,7 @@ public class BlogController {
         if (StringUtils.isEmpty(keyword)) {
             return R.error();
         }
-        SearchQuery searchQuery = new NativeSearchQueryBuilder()
-                .withQuery(queryStringQuery(keyword))
-                .build();
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(queryStringQuery(keyword)).build();
         List<Blog> list = elasticsearchTemplate.queryForList(searchQuery, Blog.class);
         return R.ok(list);
     }

@@ -24,11 +24,11 @@ public enum Discount {
 
     private final int percent;
 
-    Discount(int percent){
+    Discount(int percent) {
         this.percent = percent;
     }
 
-    public int getPercent(){
+    public int getPercent() {
         return percent;
     }
 }

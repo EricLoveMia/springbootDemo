@@ -90,8 +90,7 @@ public class BlogTest {
         request = get("/esBlog/search").contentType(MediaType.APPLICATION_JSON)
                 //.param("title","spring")
                 //.param("summary","spring")
-                .param("contentStr","spring")
-                .accept(MediaType.APPLICATION_JSON);
+                .param("contentStr", "spring").accept(MediaType.APPLICATION_JSON);
         //mvc.perform(request).andExpect(status().isOk()).andExpect(content().string(equalTo("操作成功")));
         mvc.perform(request).andDo(print()).andReturn();
     }

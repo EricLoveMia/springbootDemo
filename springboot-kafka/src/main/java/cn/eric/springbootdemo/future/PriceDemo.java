@@ -20,30 +20,7 @@ import java.util.stream.Collectors;
  **/
 public class PriceDemo {
 
-    private List<Shop> shops = Arrays.asList(new Shop("shop1"),
-            new Shop("shop2"),
-            new Shop("shop3"),
-            new Shop("shop4"),
-            new Shop("shop5"),
-            new Shop("shop6"),
-            new Shop("shop7"),
-            new Shop("shop8"),
-            new Shop("shop11"),
-            new Shop("shop13"),
-            new Shop("shop14"),
-            new Shop("shop15"),
-            new Shop("shop16"),
-            new Shop("shop17"),
-            new Shop("shop18"),
-            new Shop("shop22"),
-            new Shop("shop23"),
-            new Shop("shop24"),
-            new Shop("shop25"),
-            new Shop("shop26"),
-            new Shop("shop27"),
-            new Shop("shop28"),
-            new Shop("shop9")
-            );
+    private List<Shop> shops = Arrays.asList(new Shop("shop1"), new Shop("shop2"), new Shop("shop3"), new Shop("shop4"), new Shop("shop5"), new Shop("shop6"), new Shop("shop7"), new Shop("shop8"), new Shop("shop11"), new Shop("shop13"), new Shop("shop14"), new Shop("shop15"), new Shop("shop16"), new Shop("shop17"), new Shop("shop18"), new Shop("shop22"), new Shop("shop23"), new Shop("shop24"), new Shop("shop25"), new Shop("shop26"), new Shop("shop27"), new Shop("shop28"), new Shop("shop9"));
 
 //    public List<String> findPrices(String product){
 //        /*
@@ -53,10 +30,8 @@ public class PriceDemo {
 //                .collect(Collectors.toList());
 //    }
 
-    public List<String> findPricesCompletable(String product){
-        List<CompletableFuture<String>> priceFuture = shops.stream().map(shop -> CompletableFuture
-                .supplyAsync(() -> String.format("%s price is %.2f ", shop.getName(), shop.getPrice(product))))
-                .collect(Collectors.toList());
+    public List<String> findPricesCompletable(String product) {
+        List<CompletableFuture<String>> priceFuture = shops.stream().map(shop -> CompletableFuture.supplyAsync(() -> String.format("%s price is %.2f ", shop.getName(), shop.getPrice(product)))).collect(Collectors.toList());
         return priceFuture.stream().map(CompletableFuture::join).collect(Collectors.toList());
     }
 
@@ -66,18 +41,16 @@ public class PriceDemo {
      * N是cpu核数，U是CPU占用比
      * 最佳线程数目 = （线程等待时间与线程CPU时间之比 + 1）* CPU数目
      *
+     * @return java.util.List<java.lang.String>
+     * @throws
      * @author Eric
      * @date 15:58 2019/5/29
      * @params product
-     * @throws
-     * @return java.util.List<java.lang.String>
      **/
-    public List<String> findPricesExecutor(String product){
+    public List<String> findPricesExecutor(String product) {
         Executor executor = Executors.newCachedThreadPool();
         //Executor executor = Executors.newFixedThreadPool(Math.min(shops.size(),100));
-        List<CompletableFuture<String>> priceFuture = shops.stream().map(shop -> CompletableFuture
-                .supplyAsync(() -> String.format("%s price is %.2f ", shop.getName(), shop.getPrice(product)),executor))
-                .collect(Collectors.toList());
+        List<CompletableFuture<String>> priceFuture = shops.stream().map(shop -> CompletableFuture.supplyAsync(() -> String.format("%s price is %.2f ", shop.getName(), shop.getPrice(product)), executor)).collect(Collectors.toList());
         return priceFuture.stream().map(CompletableFuture::join).collect(Collectors.toList());
     }
 
@@ -90,7 +63,7 @@ public class PriceDemo {
         System.out.println("服务耗时" + (System.currentTimeMillis() - start));
     }
 
-    public List<String> findPrices(String product){
+    public List<String> findPrices(String product) {
         Executor executor = Executors.newCachedThreadPool();
 
 //        List<CompletableFuture<String>> priceFuture = shops.stream()

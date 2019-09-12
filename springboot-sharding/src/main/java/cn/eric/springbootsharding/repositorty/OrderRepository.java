@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
  * @company lsj
  * @date 2019/5/22 17:46
  **/
-public interface OrderRepository extends CrudRepository<Order,Long> {
+public interface OrderRepository extends CrudRepository<Order, Long> {
 
 
 }

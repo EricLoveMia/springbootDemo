@@ -49,10 +49,9 @@ public class EsBlogController {
     }
 
     @RequestMapping("/search")
-    public R elasticSerchTest(String title,@RequestParam(required = false) String summary
-            ,@RequestParam(required = false) Long blogId,@RequestParam(required = false) String contentStr) {
+    public R elasticSerchTest(String title, @RequestParam(required = false) String summary, @RequestParam(required = false) Long blogId, @RequestParam(required = false) String contentStr) {
 
-        Map<String,Object> resultMap = new HashMap<>();
+        Map<String, Object> resultMap = new HashMap<>();
         //1.创建QueryBuilder(即设置查询条件)这儿创建的是组合查询(也叫多条件查询),后面会介绍更多的查询方法
         /*组合查询BoolQueryBuilder
          * must(QueryBuilders)   :AND
@@ -70,7 +69,7 @@ public class EsBlogController {
 //        }
 
         // .queryStringQuery("fieldValue").field("fieldName");//左右模糊
-        if(!StringUtils.isEmpty(summary)) {
+        if (!StringUtils.isEmpty(summary)) {
             builder.must(QueryBuilders.queryStringQuery(summary).field("summary"));
         }
 
@@ -80,18 +79,18 @@ public class EsBlogController {
 //            builder.must(QueryBuilders.matchQuery("title", title));
 //        }
 
-        if(!StringUtils.isEmpty(title)) {
+        if (!StringUtils.isEmpty(title)) {
             // 前缀查询
             builder.must(QueryBuilders.prefixQuery("title", title));
         }
 
         //  fuzzyQuery("hotelName", "tel").fuzziness(Fuzziness.ONE); 分词模糊查询 fuzziness 的含义是检索的term 前后增加或减少n个单词的匹配查询
-        if(!StringUtils.isEmpty(contentStr)){
+        if (!StringUtils.isEmpty(contentStr)) {
             builder.must(QueryBuilders.fuzzyQuery("content", contentStr).fuzziness(Fuzziness.ONE));
         }
 
-        if(blogId != null){
-            builder.must(QueryBuilders.termQuery("blogId",blogId));
+        if (blogId != null) {
+            builder.must(QueryBuilders.termQuery("blogId", blogId));
         }
         //按照博客的评论数的排序是依次降低
         FieldSortBuilder sort = SortBuilders.fieldSort("commentSize").order(SortOrder.DESC);
@@ -116,19 +115,19 @@ public class EsBlogController {
 
         //4.获取总条数(用于前端分页)
         int total = (int) pageList.getTotalElements();
-        resultMap.put("total",total);
+        resultMap.put("total", total);
         //5.获取查询到的数据内容（返回给前端）
         List<EsBlog> content = pageList.getContent();
-        resultMap.put("data",content);
+        resultMap.put("data", content);
 
         return R.ok(resultMap);
     }
 
 
     @RequestMapping("/search2")
-    public R elasticSerch2(String title,String summary) {
+    public R elasticSerch2(String title, String summary) {
 
-        Map<String,Object> resultMap = new HashMap<>();
+        Map<String, Object> resultMap = new HashMap<>();
         //1.创建QueryBuilder(即设置查询条件)这儿创建的是组合查询(也叫多条件查询),后面会介绍更多的查询方法
         /*组合查询BoolQueryBuilder
          * must(QueryBuilders)   :AND
@@ -173,7 +172,7 @@ public class EsBlogController {
         //resultMap.put("total",total);
         //5.获取查询到的数据内容（返回给前端）
         //List<EsBlog> content = pageList.getContent();
-        resultMap.put("data",blogList);
+        resultMap.put("data", blogList);
 
         return R.ok(resultMap);
     }

@@ -27,14 +27,14 @@ public class HelloController {
 
 
     @RequestMapping("/world")
-    public String index(){
+    public String index() {
 
         for (int i = 0; i < 15000; i++) {
             logger.trace(i + "日志输出 trace");
             logger.debug(i + "日志输出 debug");
             logger.info(i + "日志输出 info");
             logger.warn(i + "日志输出 warn");
-            logger.error(i +"日志输出 error");
+            logger.error(i + "日志输出 error");
         }
 
         return "Hello World";

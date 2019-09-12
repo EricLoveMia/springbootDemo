@@ -31,13 +31,13 @@ public class OrderService {
     @Autowired
     private Environment env;
 
-    public void createOrder(Order order){
+    public void createOrder(Order order) {
 
         System.out.println(order.toString());
 
 
         //TODO：设置超时，用mq处理已超时的下单记录（一旦记录超时，则处理为无效）
-        final Long ttl=env.getProperty("trade.record.ttl",Long.class);
+        final Long ttl = env.getProperty("trade.record.ttl", Long.class);
         rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
         rabbitTemplate.setExchange(env.getProperty("register.delay.exchange.name"));
         rabbitTemplate.setRoutingKey("");
@@ -45,7 +45,7 @@ public class OrderService {
             @Override
             public Message postProcessMessage(Message message) throws AmqpException {
                 message.getMessageProperties().setHeader(AbstractJavaTypeMapper.DEFAULT_CONTENT_CLASSID_FIELD_NAME, User.class.getName());
-                message.getMessageProperties().setExpiration(ttl+"");
+                message.getMessageProperties().setExpiration(ttl + "");
                 return message;
             }
         });

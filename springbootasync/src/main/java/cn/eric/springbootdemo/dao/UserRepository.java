@@ -15,13 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
  * @company lsj
  * @date 2019/5/10 15:29
  **/
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "SELECT * from tbl_user where name = :userName",nativeQuery = true)
+    @Query(value = "SELECT * from tbl_user where name = :userName", nativeQuery = true)
     User findUser2(@Param("userName") String userName);
 
     @Modifying
     @Transactional
-    @Query(value = "update tbl_user set age = :age",nativeQuery = true)
+    @Query(value = "update tbl_user set age = :age", nativeQuery = true)
     int updateAge(@Param("age") Integer age);
 }

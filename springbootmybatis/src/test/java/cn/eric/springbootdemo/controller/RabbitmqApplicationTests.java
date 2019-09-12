@@ -30,31 +30,31 @@ public class RabbitmqApplicationTests {
     private Producer2 producer2;
 
     @Test
-    public void contextLoads(){
+    public void contextLoads() {
 
     }
 
     @Test
-    public void sendMsg() throws Exception{
+    public void sendMsg() throws Exception {
         producer.send();
         Thread.sleep(2000);
     }
 
     @Test
-    public void sendObjectMsg() throws Exception{
+    public void sendObjectMsg() throws Exception {
         producer.sendUser();
         Thread.sleep(2000);
     }
 
     @Test
-    public void sendMsgTimes() throws Exception{
+    public void sendMsgTimes() throws Exception {
         producer.sendTimes(20);
         producer2.sendTimes(30);
         Thread.sleep(2000);
     }
 
     @Test
-    public void sendRouting() throws Exception{
+    public void sendRouting() throws Exception {
         producer.sendRouting();
         Thread.sleep(2000);
     }

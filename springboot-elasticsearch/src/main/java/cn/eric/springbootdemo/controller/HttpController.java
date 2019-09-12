@@ -54,7 +54,7 @@ public class HttpController {
         // 执行get请求
         CloseableHttpResponse response = httpclient.execute(httpget);
         // 获取返回实体
-        HttpEntity entity=response.getEntity();
+        HttpEntity entity = response.getEntity();
         // 指定编码打印网页内容
         // System.out.println("网页内容："+ EntityUtils.toString(entity, "utf-8"));
         String content = EntityUtils.toString(entity, "utf-8");
@@ -88,11 +88,7 @@ public class HttpController {
 //                System.out.println("颜  色：" + color);
 //                System.out.println("买  点：" + sellingPoint);
 //                System.out.println("-----------------------------------");
-                PhoneModel phoneModel = new PhoneModel()
-                        .setName(productName)
-                        .setColors(colors.substring(0, colors.length() - 1))
-                        .setSellingPoints(sellingPoints.substring(0, sellingPoints.length() - 1))
-                        .setCreateTime(new Date());
+                PhoneModel phoneModel = new PhoneModel().setName(productName).setColors(colors.substring(0, colors.length() - 1)).setSellingPoints(sellingPoints.substring(0, sellingPoints.length() - 1)).setCreateTime(new Date());
                 phoneModelRepository.save(phoneModel);
             }
         }

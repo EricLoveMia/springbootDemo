@@ -22,13 +22,13 @@ public class ListSesrviceConfig {
 
     @Bean
     @Conditional(OnWindowsCondition.class)
-    public ListService windowsListService(){
+    public ListService windowsListService() {
         return new WindowsListService();
     }
 
     @Bean
     @Conditional(OnUnixCondition.class)
-    public ListService UnixListService(){
+    public ListService UnixListService() {
         return new UnixListService();
     }
 }

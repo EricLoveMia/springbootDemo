@@ -46,19 +46,19 @@ public class CommonMqListener {
     }
 
     //直接消费模式
-    @RabbitListener(queues = "${register.queue.name}",containerFactory = "singleListenerContainer")
-    public void consumeMessage(@Payload Order record){
+    @RabbitListener(queues = "${register.queue.name}", containerFactory = "singleListenerContainer")
+    public void consumeMessage(@Payload Order record) {
         try {
-            log.debug("消费者监听交易记录信息： {} ",record);
+            log.debug("消费者监听交易记录信息： {} ", record);
 
             //TODO：表示已经到ttl了，却还没付款，则需要处理为失效
-            if (Objects.equals(1,record.getStatus())){
+            if (Objects.equals(1, record.getStatus())) {
                 record.setStatus(0);
                 System.out.println("将订单状态改为失效" + record.toString());
                 // orderTradeRecordMapper.updateByPrimaryKeySelective(record);
             }
-        }catch (Exception e){
-            log.error("消息体解析 发生异常； ",e.fillInStackTrace());
+        } catch (Exception e) {
+            log.error("消息体解析 发生异常； ", e.fillInStackTrace());
         }
     }
 

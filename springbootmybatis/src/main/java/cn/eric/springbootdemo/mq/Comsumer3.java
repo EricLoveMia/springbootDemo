@@ -17,7 +17,7 @@ public class Comsumer3 {
 
     @RabbitHandler
     @RabbitListener(queues = "test2-queue")
-    public void process(String msg){
+    public void process(String msg) {
         System.out.println("Receiver3: " + msg);
     }
 }

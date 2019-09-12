@@ -50,9 +50,9 @@ public class UserInfoController {
         return "userInfoDel";
     }
 
-    @RequestMapping(value = "/list",method = RequestMethod.POST)
-    public String userInfoList(@Valid @RequestBody UserInfoDto userInfoDto, BindingResult result){
-        if(result.hasErrors()){
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    public String userInfoList(@Valid @RequestBody UserInfoDto userInfoDto, BindingResult result) {
+        if (result.hasErrors()) {
             FieldError fieldError = result.getFieldError();
             String field = fieldError.getField();
             String msg = fieldError.getDefaultMessage();

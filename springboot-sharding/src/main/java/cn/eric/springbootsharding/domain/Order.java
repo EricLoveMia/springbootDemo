@@ -15,7 +15,7 @@ import javax.persistence.Table;
  * @date 2019/5/22 17:42
  **/
 @Entity
-@Table(name="t_order")
+@Table(name = "t_order")
 @Data
 public class Order {
 

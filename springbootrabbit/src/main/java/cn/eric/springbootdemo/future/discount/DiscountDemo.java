@@ -20,12 +20,12 @@ public class DiscountDemo {
         }
     }
 
-    public static String applyDiscount(Quote quote){
-        return quote.getName() + "price is" + apply(quote.getPrice(),quote.getDiscount());
+    public static String applyDiscount(Quote quote) {
+        return quote.getName() + "price is" + apply(quote.getPrice(), quote.getDiscount());
     }
 
     public static String apply(Double price, Discount discount) {
         delay();
-        return NumberFormat.getInstance().format(price * (100 - discount.getPercent())/100);
+        return NumberFormat.getInstance().format(price * (100 - discount.getPercent()) / 100);
     }
 }

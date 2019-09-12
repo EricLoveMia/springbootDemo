@@ -8,13 +8,13 @@ package cn.eric.springbootdemo.responsechain.two;
  * @company lsj
  * @date 2019/5/29 18:00
  **/
-public class CarCosmetologyB extends CarControllerB{
+public class CarCosmetologyB extends CarControllerB {
 
     @Override
     public void controlCar() {
 
         System.out.println("美容工作");
-        if(getSuccessor() != null){
+        if (getSuccessor() != null) {
             getSuccessor().controlCar();
         }
     }

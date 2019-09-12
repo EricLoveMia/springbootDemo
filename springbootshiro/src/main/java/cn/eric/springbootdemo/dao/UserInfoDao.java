@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
  * @company lsj
  * @date 2019/5/15 11:35
  **/
-public interface UserInfoDao extends CrudRepository<UserInfo,Long> {
+public interface UserInfoDao extends CrudRepository<UserInfo, Long> {
 
     public UserInfo findByUsername(String username);
 

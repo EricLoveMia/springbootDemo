@@ -20,46 +20,50 @@ import java.util.List;
  * @company lsj
  * @date 2019/5/21 16:22
  **/
-public interface EmployeeRepository extends JpaRepository<Employee,Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     /**
      * 根据部门ID 获取员工数量
+     *
+     * @return int
+     * @throws
      * @author Eric
      * @date 16:25 2019/5/21
      * @params departmentId
-     * @throws
-     * @return int
      **/
     int countByDepartmentId(Long departmentId);
 
     /**
      * 根据部门Id 分页查询
+     *
+     * @return org.springframework.data.domain.Page<cn.eric.springbootdemo.domain.Employee>
+     * @throws
      * @author Eric
      * @date 16:26 2019/5/21
      * @params departmentId
      * @params pageable
-     * @throws
-     * @return org.springframework.data.domain.Page<cn.eric.springbootdemo.domain.Employee>
      **/
     Page<Employee> queryByDepartmentId(Long departmentId, Pageable pageable);
 
     /**
      * 根据员工id升序查询前10条记录
+     *
+     * @return java.util.List<cn.eric.springbootdemo.domain.Employee>
+     * @throws
      * @author Eric
      * @date 16:27 2019/5/21
-     * @throws
-     * @return java.util.List<cn.eric.springbootdemo.domain.Employee>
      **/
     List<Employee> readTop10ByOrderById();
 
     /**
      * 根据员工姓名取第一条记录
+     *
+     * @return cn.eric.springbootdemo.domain.Employee
+     * @throws
      * @author Eric
      * @date 16:28 2019/5/21
      * @params name
      * @params sort
-     * @throws
-     * @return cn.eric.springbootdemo.domain.Employee
      **/
     Employee getFirstByName(String name, Sort sort);
 

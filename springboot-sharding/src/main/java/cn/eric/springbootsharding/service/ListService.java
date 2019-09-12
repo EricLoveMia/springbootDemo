@@ -10,5 +10,5 @@ package cn.eric.springbootsharding.service;
  **/
 public interface ListService {
 
-   String showListCmd();
+    String showListCmd();
 }

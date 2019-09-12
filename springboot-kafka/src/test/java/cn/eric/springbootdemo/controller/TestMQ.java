@@ -23,16 +23,15 @@ public class TestMQ {
     KafkaSender kafkaSender;
 
     @Test
-    public void contextLoads(){
+    public void contextLoads() {
     }
 
     @Test
     public void testSendMessage() throws InterruptedException {
-        kafkaSender.sendChannelMess("dblab01","hello2");
-        kafkaSender.sendChannelMess("dblab01","hello3");
+        kafkaSender.sendChannelMess("dblab01", "hello2");
+        kafkaSender.sendChannelMess("dblab01", "hello3");
         Thread.sleep(2000);
     }
-
 
 
 }

@@ -60,7 +60,7 @@ public class JpaApplicationTests {
     }
 
     @Test
-    public void initData(){
+    public void initData() {
 
         employeeRepository.deleteAll();
         departmentRepository.deleteAll();
@@ -73,8 +73,7 @@ public class JpaApplicationTests {
         department2.setName("测试部");
         departmentRepository.save(department2);
 
-        String[] names = new String[]{"lucy", "tom", "hanmeime", "jacky", "francky", "lilly", "xiaoming", "smith",
-                "walt", "sherry" };
+        String[] names = new String[]{"lucy", "tom", "hanmeime", "jacky", "francky", "lilly", "xiaoming", "smith", "walt", "sherry"};
 
         // 员工表中增加10条记录
         for (int i = 0; i < 10; i++) {
@@ -91,23 +90,23 @@ public class JpaApplicationTests {
     }
 
     @Test
-    public void testCountByDepartmentId(){
+    public void testCountByDepartmentId() {
         int count = employeeRepository.countByDepartmentId(1L);
         System.out.println(count);
     }
 
     @Test
-    public void testQueryByDepartmentId(){
-        Pageable pageable = PageRequest.of(0,3,new Sort(Sort.Direction.ASC,"name"));
+    public void testQueryByDepartmentId() {
+        Pageable pageable = PageRequest.of(0, 3, new Sort(Sort.Direction.ASC, "name"));
         Page<Employee> employees = employeeRepository.queryByDepartmentId(1L, pageable);
 
-        for (Employee employee: employees) {
+        for (Employee employee : employees) {
             System.out.println(employee.toString());
         }
     }
 
     @Test
-    public void testReadTop10ByOrderOyId(){
+    public void testReadTop10ByOrderOyId() {
         List<Employee> emps = employeeRepository.readTop10ByOrderById();
         for (Employee emp : emps) {
             System.out.println("员工姓名：" + emp.getName() + "，所属部门：" + emp.getDepartment().getName());

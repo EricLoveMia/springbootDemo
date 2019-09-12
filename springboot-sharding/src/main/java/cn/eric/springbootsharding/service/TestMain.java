@@ -22,7 +22,7 @@ public class TestMain {
         Map<String, ListService> beansOfType = context.getBeansOfType(ListService.class);
         System.out.println(beansOfType.size());
         Iterator<Map.Entry<String, ListService>> iterator = beansOfType.entrySet().iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             Map.Entry<String, ListService> next = iterator.next();
             System.out.println("key:" + next.getKey());
             System.out.println("value:" + next.getValue());
@@ -30,8 +30,7 @@ public class TestMain {
 
         ListService bean = context.getBean(ListService.class);
         // Mac OS X系统下的列表命令为:ls
-        System.out.println(context.getEnvironment().getProperty("os.name")
-                + "系统下的列表命令为:" + bean.showListCmd());
+        System.out.println(context.getEnvironment().getProperty("os.name") + "系统下的列表命令为:" + bean.showListCmd());
 
     }
 }

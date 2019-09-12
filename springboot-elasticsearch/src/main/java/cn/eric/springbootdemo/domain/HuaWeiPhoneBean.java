@@ -26,5 +26,4 @@ public class HuaWeiPhoneBean {
     private List<String> sellingPoints;
 
 
-
 }
