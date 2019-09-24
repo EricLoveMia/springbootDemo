@@ -60,7 +60,7 @@ public class ApiResponse<T> {
     }
 
     /**
-     * @return java.util.Map<java.lang.String   ,   java.lang.String>
+     * @return java.util.Map<java.lang.String       ,       java.lang.String>
      * @throws
      * @author Eric
      * @date 11:45 2019/5/22

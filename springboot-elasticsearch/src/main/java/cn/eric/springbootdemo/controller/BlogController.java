@@ -45,6 +45,11 @@ public class BlogController {
         return R.ok(list);
     }
 
+    @PostMapping("/addIndex/")
+    public R addIndex(){
+        return null;
+    }
+
     @PostMapping("/add")
     public String add(@RequestBody Blog blog) {
         blogRepository.save(blog);

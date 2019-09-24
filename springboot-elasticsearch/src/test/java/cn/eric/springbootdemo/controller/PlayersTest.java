@@ -96,8 +96,8 @@ public class PlayersTest {
 
         List<StringTerms.Bucket> buckets = player_count.getBuckets();
         for (StringTerms.Bucket bucket : buckets) {
-            System.out.println(bucket.getKeyAsString());
-            System.out.println(bucket.getDocCount());
+            System.out.println(bucket.getKeyAsString() + ":" + bucket.getDocCount());
+            //System.out.println(bucket.getDocCount());
         }
     }
 

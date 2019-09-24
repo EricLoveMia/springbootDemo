@@ -133,8 +133,8 @@ public class BlogTest {
         List<LongTerms.Bucket> buckets = agg.getBuckets();
 
         for (LongTerms.Bucket bucket : buckets) {
-            System.out.println(bucket.getKeyAsString());
-            System.out.println(bucket.getDocCount());
+            System.out.println(bucket.getKeyAsString() + ":" + bucket.getDocCount());
+            //System.out.println(bucket.getDocCount());
         }
 
     }
