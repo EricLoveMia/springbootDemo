@@ -20,13 +20,17 @@
     </properties>
 
     <modules>
-        <module>springbootasync</module>
+        <module>springboot-jpa</module>
         <module>springboot-elasticsearch</module>
         <module>springboot-sharding</module>
-        <module>springbootmybatis</module>
-        <module>springbootrabbit</module>
-        <module>springbootshiro</module>
-        <module>springbootwebsocket</module>
+        <module>springboot-mybatis</module>
+        <module>springboot-rabbit</module>
+        <module>springboot-shiro</module>
+        <module>springboot-kafka</module>
+        <module>springboot-sign</module>
+        <module>springboot-thrift-server</module>
+        <module>springboot-thrift-client</module>
+        <module>springboot-redis</module>
     </modules>
 
     <dependencies>

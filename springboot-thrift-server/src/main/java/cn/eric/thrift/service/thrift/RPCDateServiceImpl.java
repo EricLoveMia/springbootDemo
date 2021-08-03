@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @ClassName RPCDateServiceImpl
@@ -23,7 +24,7 @@ public class RPCDateServiceImpl implements RPCDateService.Iface {
     private Map<Integer, Student> studentMap = new HashMap<>();
 
     @Override
-    public String getDate(String userName) throws TException {
+    public String getDate(String userName) {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("今天是yyyy年MM月dd日 E kk点mm分");
         String nowTime = simpleDateFormat.format(date);
@@ -42,7 +43,7 @@ public class RPCDateServiceImpl implements RPCDateService.Iface {
 
     @Override
     public Student getStudent(int userId) throws TException {
-        return studentMap.get(userId);
+        return Optional.ofNullable(studentMap.get(userId)).orElse(new Student());
     }
 }
 
