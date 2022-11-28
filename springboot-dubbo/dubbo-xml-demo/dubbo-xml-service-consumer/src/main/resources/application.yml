@@ -1,0 +1,15 @@
+
+# dubbo 配置项，对应 DubboConfigurationProperties 配置类
+dubbo:
+  # Dubbo 应用配置
+  application:
+    name: dubbo-xml-service-consumer # 应用名
+  registry:
+    address: zookeeper://211.149.243.54:2182
+  consumer:
+    timeout: 1000 # 【重要】远程服务调用超时时间，单位：毫秒。默认为 1000 毫秒，
+    UserRpcService:
+      version: 1.0.0
+server:
+  port: 8081
+
