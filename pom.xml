@@ -36,6 +36,7 @@
         <module>springboot-netty-zerobasis</module>
         <module>springboot-serialization</module>
         <module>springboot-delayTask</module>
+        <module>springboot-dubbo</module>
     </modules>
 
     <dependencies>
