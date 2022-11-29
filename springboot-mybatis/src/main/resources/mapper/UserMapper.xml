@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.eric.springbootdemo.mapper.UserMapper">
-    <resultMap id="BaseResultMap" type="cn.eric.springbootdemo.domain.User">
+    <resultMap id="BaseResultMap" type="com.loveprogrammer.springboot.mybatis.domain.User">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
@@ -21,13 +21,13 @@
         delete from t_users
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" parameterType="cn.eric.springbootdemo.domain.User">
+    <insert id="insert" parameterType="com.loveprogrammer.springboot.mybatis.domain.User">
         insert into t_users (id, username, password,
         name, locked)
         values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
         #{name,jdbcType=VARCHAR}, #{locked,jdbcType=BIT})
     </insert>
-    <insert id="insertSelective" parameterType="cn.eric.springbootdemo.domain.User">
+    <insert id="insertSelective" parameterType="com.loveprogrammer.springboot.mybatis.domain.User">
         insert into t_users
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -64,7 +64,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.eric.springbootdemo.domain.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.loveprogrammer.springboot.mybatis.domain.User">
         update t_users
         <set>
             <if test="username != null">
@@ -82,7 +82,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.eric.springbootdemo.domain.User">
+    <update id="updateByPrimaryKey" parameterType="com.loveprogrammer.springboot.mybatis.domain.User">
         update t_users
         set username = #{username,jdbcType=VARCHAR},
         password = #{password,jdbcType=VARCHAR},

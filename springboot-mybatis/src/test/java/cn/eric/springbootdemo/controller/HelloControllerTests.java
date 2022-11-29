@@ -1,5 +1,6 @@
 package cn.eric.springbootdemo.controller;
 
+import com.loveprogrammer.springboot.mybatis.controller.HelloController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

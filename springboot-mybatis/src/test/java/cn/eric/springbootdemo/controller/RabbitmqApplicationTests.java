@@ -1,7 +1,7 @@
 package cn.eric.springbootdemo.controller;
 
-import cn.eric.springbootdemo.mq.Producer;
-import cn.eric.springbootdemo.mq.Producer2;
+import com.loveprogrammer.springboot.mybatis.mq.Producer;
+import com.loveprogrammer.springboot.mybatis.mq.Producer2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
