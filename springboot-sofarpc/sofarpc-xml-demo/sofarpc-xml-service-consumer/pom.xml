@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.alipay.sofa</groupId>
+        <artifactId>sofaboot-dependencies</artifactId>
+        <version>3.3.2</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sofarpc-xml-service-consumer</artifactId>
+
+    <dependencies>
+        <dependency>
+            <artifactId>sofarpc-xml-service-api</artifactId>
+            <groupId>com.loveprogrammer</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 引入 SpringMVC 的 Spring Boot 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- <3> 实现对 SOFARPC 的自动化配置 -->
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>rpc-sofa-boot-starter</artifactId>
+        </dependency>
+
+        <!-- <4> 使用 Zookeeper 作为注册中心 -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+        </dependency>
+    </dependencies>
+</project>

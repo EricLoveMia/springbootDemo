@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: user-service-consumer # 应用名
+
+server:
+  port: 8081
+
+com.alipay.sofa.rpc.registry.address: zookeeper://211.149.243.54:2182 # SOFARPC 注解中心
+

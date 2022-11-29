@@ -37,6 +37,7 @@
         <module>springboot-rpc-framework</module>
         <module>springboot-websocket</module>
         <module>springboot-thrift</module>
+        <module>springboot-sofarpc</module>
     </modules>
 
     <dependencies>
