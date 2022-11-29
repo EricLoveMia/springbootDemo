@@ -38,6 +38,7 @@
         <module>springboot-delayTask</module>
         <module>springboot-dubbo</module>
         <module>springboot-rpc-framework</module>
+        <module>springboot-websocket</module>
     </modules>
 
     <dependencies>
