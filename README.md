@@ -9,13 +9,11 @@ springboot-mybatis: 整合mybatis
 springboot-rabbit: 整合rabbit-mq
 springboot-shiro: 整合shiro
 springboot-kafka: 整合kafka
-springboot-sign: 整合jpa的例子
-springboot-thrift-server: 
-springboot-thrift-client: 
-springboot-thrift-annotaion
-springboot-redis : 整合jpa的例子
+springboot-sign: 计算登陆的sign
+springboot-thrift: 整合thrift
+springboot-redis : 整合redis
 springboot-serialization
-springboot-delayTask
-springboot-dubbo
+springboot-delayTask ：各种延时执行的实现
+springboot-dubbo ：整合dubbo
 springboot-rpc-framework
-springboot-websocket
+springboot-websocket ：整合websocket的demo

@@ -28,9 +28,6 @@
         <module>springboot-shiro</module>
         <module>springboot-kafka</module>
         <module>springboot-sign</module>
-        <module>springboot-thrift-server</module>
-        <module>springboot-thrift-client</module>
-        <module>springboot-thrift-annotaion</module>
         <module>springboot-redis</module>
         <module>springboot-grpc-lib</module>
         <module>springboot-netty-zerobasis</module>
@@ -39,6 +36,7 @@
         <module>springboot-dubbo</module>
         <module>springboot-rpc-framework</module>
         <module>springboot-websocket</module>
+        <module>springboot-thrift</module>
     </modules>
 
     <dependencies>
