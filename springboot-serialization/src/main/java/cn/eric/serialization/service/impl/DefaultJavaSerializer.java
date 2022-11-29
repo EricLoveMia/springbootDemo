@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @ClassName DefaultJavaSerializer
  * @Description: TODO
- * @Author YCKJ2725
+ * @Author eric
  * @Date 2021/8/27
  * @Version V1.0
  **/
