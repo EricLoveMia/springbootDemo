@@ -1,4 +1,4 @@
-package cn.eric.rpcframework.server;
+package com.loveprogrammer.springboot.rpc.server;
 
 import org.apache.commons.beanutils.MethodUtils;
 

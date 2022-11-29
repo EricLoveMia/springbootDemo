@@ -1,4 +1,4 @@
-package cn.eric.rpcframework.client;
+package com.loveprogrammer.springboot.rpc.client;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -10,15 +10,13 @@ import java.net.Socket;
 /**
  * @ClassName ConsumerProxy
  * @Description: TODO
- * @Author YCKJ2725
+ * @Author eric
  * @Date 2021/8/13
  * @Version V1.0
  **/
 public class ConsumerProxy {
 
-
     public static <T> T consume(final Class<T> interfaceClass, final String host, final int port) throws Exception {
-
 
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass},
                 new InvocationHandler() {

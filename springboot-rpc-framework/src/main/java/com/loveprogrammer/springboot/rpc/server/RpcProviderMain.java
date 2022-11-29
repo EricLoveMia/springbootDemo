@@ -1,6 +1,6 @@
-package cn.eric.rpcframework.server;
+package com.loveprogrammer.springboot.rpc.server;
 
-import cn.eric.rpcframework.inter.HelloService;
+import com.loveprogrammer.springboot.rpc.inter.HelloService;
 
 /**
  * 服务的启动

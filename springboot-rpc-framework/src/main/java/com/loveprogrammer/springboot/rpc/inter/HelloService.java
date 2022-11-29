@@ -1,4 +1,4 @@
-package cn.eric.rpcframework.inter;
+package com.loveprogrammer.springboot.rpc.inter;
 
 public interface HelloService {
 

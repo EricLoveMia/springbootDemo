@@ -8,10 +8,10 @@
         <version>2.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>cn.eric</groupId>
-    <artifactId>rpcframework</artifactId>
+    <groupId>com.loveprogrammer</groupId>
+    <artifactId>springboot-rpc-framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rpcframework</name>
+    <name>springboot-rpc-framework</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>

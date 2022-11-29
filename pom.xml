@@ -37,6 +37,7 @@
         <module>springboot-serialization</module>
         <module>springboot-delayTask</module>
         <module>springboot-dubbo</module>
+        <module>springboot-rpc-framework</module>
     </modules>
 
     <dependencies>
