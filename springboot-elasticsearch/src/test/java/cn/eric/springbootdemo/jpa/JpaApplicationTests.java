@@ -1,12 +1,12 @@
 package cn.eric.springbootdemo.jpa;
 
-import cn.eric.springbootdemo.dao.DepartmentRepository;
-import cn.eric.springbootdemo.dao.EmployeeRepository;
-import cn.eric.springbootdemo.dao.UserRepository;
-import cn.eric.springbootdemo.domain.Department;
-import cn.eric.springbootdemo.domain.Employee;
-import cn.eric.springbootdemo.domain.EmployeeDetail;
-import cn.eric.springbootdemo.domain.User;
+import com.loveprogrammer.springboot.elasticsearch.dao.DepartmentRepository;
+import com.loveprogrammer.springboot.elasticsearch.dao.EmployeeRepository;
+import com.loveprogrammer.springboot.elasticsearch.dao.UserRepository;
+import com.loveprogrammer.springboot.elasticsearch.domain.Department;
+import com.loveprogrammer.springboot.elasticsearch.domain.Employee;
+import com.loveprogrammer.springboot.elasticsearch.domain.EmployeeDetail;
+import com.loveprogrammer.springboot.elasticsearch.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

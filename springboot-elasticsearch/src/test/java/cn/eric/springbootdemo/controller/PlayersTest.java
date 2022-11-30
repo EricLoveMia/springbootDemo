@@ -1,7 +1,7 @@
 package cn.eric.springbootdemo.controller;
 
-import cn.eric.springbootdemo.dao.PlayersRepository;
-import cn.eric.springbootdemo.domain.Players;
+import com.loveprogrammer.springboot.elasticsearch.dao.PlayersRepository;
+import com.loveprogrammer.springboot.elasticsearch.domain.Players;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;

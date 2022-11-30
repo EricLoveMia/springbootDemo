@@ -1,7 +1,7 @@
 package cn.eric.springbootdemo.controller;
 
-import cn.eric.springbootdemo.dao.EsBlogRepository;
-import cn.eric.springbootdemo.domain.EsBlog;
+import com.loveprogrammer.springboot.elasticsearch.dao.EsBlogRepository;
+import com.loveprogrammer.springboot.elasticsearch.domain.EsBlog;
 import com.alibaba.fastjson.JSONObject;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.index.query.QueryBuilder;
