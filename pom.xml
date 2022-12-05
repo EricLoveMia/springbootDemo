@@ -39,6 +39,9 @@
         <module>springboot-websocket</module>
         <module>springboot-thrift</module>
         <module>springboot-sofarpc</module>
+        <module>springboot-motan</module>
+        <module>springboot-multidatasource</module>
+        <module>springboot-security</module>
     </modules>
 
     <dependencies>
