@@ -42,6 +42,7 @@
         <module>springboot-motan</module>
         <module>springboot-multidatasource</module>
         <module>springboot-security</module>
+        <module>springboot-oauth2</module>
     </modules>
 
     <dependencies>

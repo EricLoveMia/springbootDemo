@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>cn.eric</groupId>
-    <artifactId>springbootrabbit</artifactId>
+    <artifactId>springboot-rabbit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springbootrabbit</name>
     <description>Demo project for Spring Boot</description>
