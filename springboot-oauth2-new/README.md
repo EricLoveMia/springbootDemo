@@ -1,0 +1,1 @@
+spring authorization server是spring团队最新的认证授权服务器，之前的oauth2后面会逐步弃用

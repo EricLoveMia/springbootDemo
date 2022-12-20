@@ -1,12 +1,11 @@
 package com.loveprogrammer.oauth2.client.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 /**
@@ -20,14 +19,11 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     /**
-     * 用户认证 Manager
+     * 创建 PasswordEncoder Bean
      */
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager);
+    @Bean
+    public static NoOpPasswordEncoder passwordEncoder() {
+        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
 
     @Override
@@ -40,8 +36,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory() // <4.1>
                 .withClient("clientapp").secret("112233") // <4.2> Client 账号、密码。
-                .authorizedGrantTypes("implicit") // <4.2> 简化模式
-                .redirectUris("http://127.0.0.1:9090/callback02") // 配置回调，选填
+                .authorizedGrantTypes("client_credentials") // 客户端模式
                 .scopes("read_userinfo", "read_contacts") // 可授权的 Scope
 //                .and().withClient() // <4.3> 可以继续配置新的 Client
         ;

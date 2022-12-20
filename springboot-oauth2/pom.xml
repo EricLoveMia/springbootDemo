@@ -19,5 +19,7 @@
         <module>authorization-server-with-authorization-code</module>
         <module>authorization-server-with-implicit</module>
         <module>authorization-server-with-client-credentials</module>
+        <module>merge</module>
+        <module>authorization-server-with-refresh-token</module>
     </modules>
 </project>

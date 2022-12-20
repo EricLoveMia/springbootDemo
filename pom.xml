@@ -43,6 +43,8 @@
         <module>springboot-multidatasource</module>
         <module>springboot-security</module>
         <module>springboot-oauth2</module>
+        <module>springboot-oauth2-new</module>
+        <module>sringboot-task</module>
     </modules>
 
     <dependencies>
